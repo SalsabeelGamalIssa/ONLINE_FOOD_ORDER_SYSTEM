@@ -1,0 +1,60 @@
+
+
+<div class="ay7aga">
+<div class="container">
+
+    <section id="cart"> 
+        <article class="product" *ngFor="let item of carts.items">
+            <header>
+                <a class="remove">
+                    <img [src]="'http://localhost:4000/' + item.productId.image"/>
+
+                    <h3>Remove product</h3>
+                </a>
+            </header>
+
+            <div class="content">
+
+                <h1>{{ item.productId.name }}</h1>
+
+                {{ item.productId.description }}                
+            </div>
+
+            <footer class="content">
+                <span class="qt-minus" (click)="decrease(product)">-</span>
+                <span class="qt">{{ item.quantity }}</span>
+                <span class="qt-plus"(click)="_increamentQTY(item.productId._id,1)">+</span>
+
+                <h2 class="full-price">
+                    {{ item.total }}
+                </h2>
+
+                <h2 class="price">
+                    {{ item.productId.price }} 
+                </h2>
+            </footer>
+        </article>
+
+       
+
+    </section>
+
+</div>
+
+<footer id="site-footer">
+    <div class="container clearfix">
+
+        <div class="left">
+            <h2 class="subtotal">Subtotal: <span>{{ carts.subTotal }}</span>€</h2>
+            <h3 class="tax">Taxes (5%): <span>0.5 *{{carts.subTotal }}</span>€</h3>
+            <h3 class="shipping">Shipping: <span>5.00</span>€</h3>
+        </div>
+
+        <div class="right">
+            <h1 class="total">Total: <span>{{ carts.subTotal }} </span>€</h1>
+            <a class="btn">Checkout</a>
+        </div>
+
+    </div>
+</footer>
+</div>
